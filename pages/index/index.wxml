@@ -1,0 +1,9 @@
+<!-- pages/index/index.wxml -->
+<view class="container">
+  <block wx:for="{{courses}}" wx:key="name">
+    <view class="course-item">
+      <image class="course-image" src="{{item.image}}" />
+      <text class="course-name">{{item.name}}</text>
+    </view>
+  </block>
+</view>

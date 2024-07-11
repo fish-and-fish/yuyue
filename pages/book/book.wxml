@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="header">
+    <navigator url="/pages/schedule/schedule">
+      <text class="back-icon">＜</text>
+    </navigator>
+    <text>预约课程</text>
+  </view>
+  <view class="course">
+    <image class="profile-pic" src="{{courseImage}}" />
+    <text class="course-name">{{courseName}}</text>
+  </view>
+  <view class="form">
+    <view class="form-item">
+      <text class="label">老师</text>
+      <input placeholder="请选择老师" />
+    </view>
+    <view class="form-item">
+      <text class="label">日期</text>
+      <input placeholder="请选择日期" />
+    </view>
+    <view class="form-item time-selection">
+      <text class="label">时间</text>
+      <view class="time-grid">
+        <view class="time-slot" wx:for="{{timeSlots}}" wx:key="{{index}}" bindtap="selectTimeSlot">
+          <text>{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button class="submit-btn" bindtap="bookCourse">确定预约</button>
+</view>

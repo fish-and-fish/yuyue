@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/schedule/schedule",
+    "pages/mycourses/mycourses",
+    "pages/profile/profile",
+    "pages/book/book",
+    "pages/bookingSuccess/bookingSuccess"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/schedule/schedule",
+        "text": "预约课程",
+        "iconPath": "icons/schedule.png",
+        "selectedIconPath": "icons/schedule_active.png"
+      },
+      {
+        "pagePath": "pages/mycourses/mycourses",
+        "text": "我的课程",
+        "iconPath": "icons/mycourses.png",
+        "selectedIconPath": "icons/mycourses_active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "个人中心",
+        "iconPath": "icons/profile.png",
+        "selectedIconPath": "icons/profile_active.png"
+      }
+    ]
+  }
+}

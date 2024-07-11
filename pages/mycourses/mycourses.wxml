@@ -1,0 +1,17 @@
+<view class="container">
+  <view class="tabs">
+    <view class="tab selected">已约课程</view>
+    <view class="tab">完成课程</view>
+    <view class="tab">取消课程</view>
+  </view>
+  <view class="course-list">
+    <view class="course-item">
+      <view class="course-date">9月1日</view>
+      <view class="course-info">
+        <view class="course-name">古筝</view>
+        <view class="course-time">9:00-10:00</view>
+        <button class="cancel-btn" bindtap="cancelBooking">取消预约</button>
+      </view>
+    </view>
+  </view>
+</view>

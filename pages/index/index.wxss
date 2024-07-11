@@ -1,0 +1,22 @@
+/* pages/index/index.wxss */
+.container {
+  padding: 20px;
+}
+
+.course-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.course-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.course-name {
+  font-size: 18px;
+  color: #333;
+}
