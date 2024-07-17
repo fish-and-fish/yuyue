@@ -1,30 +1,33 @@
 <view class="container">
-  <view class="section">
-    <text>老师</text>
+  <view class="course-header">
+    <image src="../../assets/images/guqin.png" class="course-image"></image>
+    <text class="course-name">古筝</text>
+  </view>
+  <view class="form-group">
+    <label>老师</label>
     <picker mode="selector" range="{{teachers}}" bindchange="bindTeacherChange">
-      <view class="picker">
-        {{teacherName || '请选择老师'}}
-      </view>
+      <view class="picker">{{selectedTeacherName}}</view>
     </picker>
   </view>
-
-  <view class="section">
-    <text>日期</text>
+  <view class="form-group">
+    <label>日期</label>
     <picker mode="date" bindchange="bindDateChange">
-      <view class="picker">
-        {{date || '请选择日期'}}
-      </view>
+      <view class="picker">{{selectedDate}}</view>
     </picker>
   </view>
-
-  <view class="section">
-    <text>时间</text>
-    <picker mode="time" start="08:00" end="20:00" bindchange="bindTimeChange">
-      <view class="picker">
-        {{time || '请选择时间'}}
-      </view>
-    </picker>
+  <view class="form-group">
+    <label>时间</label>
+    <view class="time-grid">
+      <block wx:for="{{timeSlots}}" wx:key="index">
+        <button 
+          class="time-slot {{selectedTimeSlot === item ? 'selected' : ''}}" 
+          bindtap="selectTimeSlot" 
+          data-time="{{item}}"
+        >
+          {{item}}
+        </button>
+      </block>
+    </view>
   </view>
-
   <button bindtap="submitBooking">确定预约</button>
 </view>

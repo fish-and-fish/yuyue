@@ -1,10 +1,41 @@
 .container {
   padding: 20px;
 }
-.section {
+.course-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.course-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.course-name {
+  margin-left: 10px;
+  font-size: 20px;
+}
+.form-group {
   margin-bottom: 20px;
 }
 .picker {
   padding: 10px;
-  background-color: #f1f1f1;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+.time-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.time-slot {
+  width: 30%;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.time-slot.selected {
+  background-color: #007acc;
+  color: white;
 }
