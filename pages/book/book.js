@@ -1,29 +1,56 @@
 Page({
   data: {
-    courseName: '',
-    courseImage: '',
-    timeSlots: [
-      '8:00-9:00', '9:00-10:00', '10:00-11:00', '11:00-12:00',
-      '12:00-13:00', '13:00-14:00', '14:00-15:00', '15:00-16:00',
-      '16:00-17:00', '17:00-18:00', '18:00-19:00', '19:00-20:00',
-      '20:00-21:00', '21:00-22:00'
-    ],
-    selectedTimeSlot: null
+    teachers: ['古筝', '吉他', '钢琴'],
+    teacherName: '',
+    date: '',
+    time: ''
   },
-  onLoad(options) {
+
+  bindTeacherChange(e) {
     this.setData({
-      courseName: options.courseName,
-      courseImage: options.courseImage
+      teacherName: this.data.teachers[e.detail.value]
     });
   },
-  selectTimeSlot(e) {
+
+  bindDateChange(e) {
     this.setData({
-      selectedTimeSlot: e.currentTarget.dataset.index
+      date: e.detail.value
     });
   },
-  bookCourse() {
+
+  bindTimeChange(e) {
+    this.setData({
+      time: e.detail.value
+    });
+  },
+
+  submitBooking() {
+    if (!this.data.teacherName) {
+      wx.showToast({
+        title: '请选择老师',
+        icon: 'none'
+      });
+      return;
+    }
+
+    if (!this.data.date) {
+      wx.showToast({
+        title: '请选择日期',
+        icon: 'none'
+      });
+      return;
+    }
+
+    if (!this.data.time) {
+      wx.showToast({
+        title: '请选择时间',
+        icon: 'none'
+      });
+      return;
+    }
+
     wx.navigateTo({
-      url: '/pages/bookingSuccess/bookingSuccess'
+      url: '../bookingSuccess/bookingSuccess'
     });
   }
 });

@@ -1,7 +1,7 @@
 Page({
-  viewBooking() {
-    wx.switchTab({
-      url: '/pages/mycourses/mycourses'
+  toMyCourses() {
+    wx.navigateTo({
+      url: '../myCourses/myCourses'
     });
   }
 });

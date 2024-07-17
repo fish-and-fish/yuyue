@@ -1,31 +1,30 @@
 <view class="container">
-  <view class="header">
-    <navigator url="/pages/schedule/schedule">
-      <text class="back-icon">＜</text>
-    </navigator>
-    <text>预约课程</text>
-  </view>
-  <view class="course">
-    <image class="profile-pic" src="{{courseImage}}" />
-    <text class="course-name">{{courseName}}</text>
-  </view>
-  <view class="form">
-    <view class="form-item">
-      <text class="label">老师</text>
-      <input placeholder="请选择老师" />
-    </view>
-    <view class="form-item">
-      <text class="label">日期</text>
-      <input placeholder="请选择日期" />
-    </view>
-    <view class="form-item time-selection">
-      <text class="label">时间</text>
-      <view class="time-grid">
-        <view class="time-slot" wx:for="{{timeSlots}}" wx:key="{{index}}" bindtap="selectTimeSlot">
-          <text>{{item}}</text>
-        </view>
+  <view class="section">
+    <text>老师</text>
+    <picker mode="selector" range="{{teachers}}" bindchange="bindTeacherChange">
+      <view class="picker">
+        {{teacherName || '请选择老师'}}
       </view>
-    </view>
+    </picker>
   </view>
-  <button class="submit-btn" bindtap="bookCourse">确定预约</button>
+
+  <view class="section">
+    <text>日期</text>
+    <picker mode="date" bindchange="bindDateChange">
+      <view class="picker">
+        {{date || '请选择日期'}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="section">
+    <text>时间</text>
+    <picker mode="time" start="08:00" end="20:00" bindchange="bindTimeChange">
+      <view class="picker">
+        {{time || '请选择时间'}}
+      </view>
+    </picker>
+  </view>
+
+  <button bindtap="submitBooking">确定预约</button>
 </view>
