@@ -1,9 +1,9 @@
-<!-- pages/index/index.wxml -->
 <view class="container">
-  <block wx:for="{{courses}}" wx:key="name">
+  <view class="title">预约课程</view>
+  <block wx:for="{{courses}}" wx:key="id">
     <view class="course-item">
-      <image class="course-image" src="{{item.image}}" />
-      <text class="course-name">{{item.name}}</text>
+      <image class="course-image" src="{{item.course_image}}" />
+      <text class="course-name">{{item.course_name}}</text>
     </view>
   </block>
 </view>

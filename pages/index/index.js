@@ -1,11 +1,32 @@
-// pages/index/index.js
 Page({
   data: {
-    courses: [
-      { name: "古筝", image: "/images/guqin.png" },
-      { name: "吉他", image: "/images/guitar.png" },
-      { name: "钢琴", image: "/images/piano.png" },
-      { name: "吉他", image: "/images/guitar.png" }
-    ]
+    courses: []
+  },
+  onLoad: function () {
+    this.getCourses();
+  },
+  getCourses: function () {
+    wx.request({
+      url: `${getApp().globalData.baseUrl}/course/all`,
+      method: 'GET',
+      success: (res) => {
+        if (res.data.success) {
+          this.setData({
+            courses: res.data.data
+          });
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none'
+          });
+        }
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '网络错误，请稍后重试',
+          icon: 'none'
+        });
+      }
+    });
   }
-})
+});

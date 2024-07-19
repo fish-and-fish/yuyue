@@ -1,33 +1,29 @@
 <view class="container">
   <view class="course-header">
-    <image src="../../assets/images/guqin.png" class="course-image"></image>
-    <text class="course-name">古筝</text>
+    <image class="course-image" src="{{courseImage}}" />
+    <text class="course-name">{{courseName}}</text>
   </view>
-  <view class="form-group">
-    <label>老师</label>
+  <view class="field">
+    <text class="label">老师</text>
     <picker mode="selector" range="{{teachers}}" bindchange="bindTeacherChange">
-      <view class="picker">{{selectedTeacherName}}</view>
+      <view class="input">{{teacher || '请选择老师'}}</view>
     </picker>
   </view>
-  <view class="form-group">
-    <label>日期</label>
+  <view class="field">
+    <text class="label">日期</text>
     <picker mode="date" bindchange="bindDateChange">
-      <view class="picker">{{selectedDate}}</view>
+      <view class="input">{{date || '请选择日期'}}</view>
     </picker>
   </view>
-  <view class="form-group">
-    <label>时间</label>
-    <view class="time-grid">
-      <block wx:for="{{timeSlots}}" wx:key="index">
-        <button 
-          class="time-slot {{selectedTimeSlot === item ? 'selected' : ''}}" 
-          bindtap="selectTimeSlot" 
-          data-time="{{item}}"
-        >
+  <view class="field">
+    <text class="label">时间</text>
+    <view class="time-container">
+      <block wx:for="{{timeSlots}}" wx:key="time">
+        <view class="time-slot {{selectedTime === item ? 'selected' : ''}}" bindtap="selectTime" data-time="{{item}}">
           {{item}}
-        </button>
+        </view>
       </block>
     </view>
   </view>
-  <button bindtap="submitBooking">确定预约</button>
+  <button class="button" bindtap="bookCourse">确定预约</button>
 </view>
