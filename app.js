@@ -16,5 +16,14 @@ App({
   globalData: {
     userInfo: null,
     baseUrl: 'http://127.0.0.1:8099' 
+  },
+  switchTab(e) {
+    const pagePath = e.currentTarget.dataset.path;
+    if (pagePath !== this.globalData.currentTab) {
+      this.globalData.currentTab = pagePath;
+      wx.switchTab({
+        url: pagePath
+      });
+    }
   }
 })

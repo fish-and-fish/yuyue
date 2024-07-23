@@ -1,6 +1,0 @@
-
-<view class="container">
-  <text class="success-text">预约成功</text>
-  <text class="course-text">{{courseName}}</text>
-  <button class="button" bindtap="viewMyCourses">查看我的预约</button>
-</view>

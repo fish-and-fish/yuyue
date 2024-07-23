@@ -1,32 +1,46 @@
 Page({
   data: {
-    courses: []
+    loading: true,
+    courses: [],
+    errorMessage: ''
   },
-  onLoad: function () {
-    this.getCourses();
+
+  onLoad: function() {
+    this.fetchCourses();
   },
-  getCourses: function () {
+
+  fetchCourses: function() {
+    const that = this;
     wx.request({
-      url: `${getApp().globalData.baseUrl}/course/all`,
+      url: 'http://127.0.0.1:8099/course/all',
       method: 'GET',
-      success: (res) => {
+      success(res) {
         if (res.data.success) {
-          this.setData({
-            courses: res.data.data
+          that.setData({
+            courses: res.data.data,
+            loading: false
           });
         } else {
-          wx.showToast({
-            title: res.data.message,
-            icon: 'none'
+          that.setData({
+            errorMessage: res.data.message,
+            loading: false
           });
         }
       },
-      fail: (err) => {
-        wx.showToast({
-          title: '网络错误，请稍后重试',
-          icon: 'none'
+      fail() {
+        that.setData({
+          errorMessage: '无法获取课程信息，请稍后再试。',
+          loading: false
         });
       }
     });
+  },
+
+  navigateToCourseBooking(e) {
+    const { id, courseName, courseImage} = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/courseBooking/courseBooking?id=${id}&courseName=${courseName}&courseImage=${courseImage}`
+    });
   }
+
 });
