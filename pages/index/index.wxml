@@ -14,9 +14,11 @@
     </view>
   </view>
 </view>
+<!-- pages/index/index.wxml -->
 <view class="nav-bar">
-  <navigator url="/pages/index/index">预约课程</navigator>
-  <navigator url="/pages/myCourses/myCourses">我的课程</navigator>
-  <navigator url="/pages/profile/profile">个人中心</navigator>
+  <view bindtap="handleNavClick" data-url="/pages/index/index">预约课程</view>
+  <view bindtap="handleNavClick" data-url="/pages/myCourses/myCourses">我的课程</view>
+  <view bindtap="handleNavClick" data-url="/pages/profile/profile">个人中心</view>
 </view>
+
 

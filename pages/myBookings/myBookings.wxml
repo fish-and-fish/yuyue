@@ -1,0 +1,20 @@
+<!-- pages/myBookings/myBookings.wxml -->
+<view class="container">
+  <view class="tabs">
+    <view class="tab {{status === 'BOOKING' ? 'active' : ''}}" data-status="BOOKING" bindtap="switchStatus">已约课程</view>
+    <view class="tab {{status === 'COMPLETE' ? 'active' : ''}}" data-status="COMPLETE" bindtap="switchStatus">完成课程</view>
+    <view class="tab {{status === 'CANCELLED' ? 'active' : ''}}" data-status="CANCELLED" bindtap="switchStatus">取消课程</view>
+  </view>
+  <block wx:for="{{bookings}}" wx:key="id">
+    <view class="booking">
+      <text class="course-name">{{item.course.courseName}}</text>
+      <text class="time">{{item.bookingStartTime}} - {{item.bookingEndTime}}</text>
+      <text class="teacher">{{item.teacher.teacherName}}</text>
+      <view class="actions">
+        <button wx:if="{{status === 'BOOKING'}}" bindtap="cancelBooking" data-id="{{item.id}}">取消预约</button>
+        <text wx:if="{{status === 'COMPLETE'}}">完成时间: {{item.completeTime}}</text>
+        <text wx:if="{{status === 'CANCELLED'}}">取消时间: {{item.cancelTime}}</text>
+      </view>
+    </view>
+  </block>
+</view>

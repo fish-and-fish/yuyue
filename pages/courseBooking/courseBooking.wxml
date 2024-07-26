@@ -1,0 +1,24 @@
+<!-- pages/courseBooking/courseBooking.wxml -->
+<view class="container">
+  <image class="course-image" src="{{course.courseImage}}"></image>
+  <text class="course-name">{{course.courseName}}</text>
+
+  <picker mode="selector" range="{{teachers}}" range-key="teacherName" bindchange="selectTeacher">
+    <view class="picker">
+      {{selectedTeacher || '请选择老师'}}
+    </view>
+  </picker>
+  <picker mode="date" bindchange="selectDate">
+    <view class="picker">
+      {{selectedDate || '请选择日期'}}
+    </view>
+  </picker>
+  <view class="time-slots">
+    <block wx:for="{{timeSlots}}" wx:key="index">
+      <view class="time-slot {{selectedTimeSlot === item.start + ' - ' + item.end ? 'selected' : ''}}" data-index="{{index}}" bindtap="selectTimeSlot">
+        {{item.start}} - {{item.end}}
+      </view>
+    </block>
+  </view>
+  <button bindtap="confirmBooking">确定预约</button>
+</view>

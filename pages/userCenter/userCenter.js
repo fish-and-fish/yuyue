@@ -1,11 +1,11 @@
-// pages/profile/profile.js
+// pages/userCenter/userCenter.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    currentPage: '/pages/profile/profile'
+
   },
 
   /**
@@ -62,12 +62,5 @@ Page({
    */
   onShareAppMessage() {
 
-  },
-
-  handleNavClick(e) {
-    const targetPage = e.currentTarget.dataset.url;
-    if (targetPage !== this.data.currentPage) {
-      wx.navigateTo({ url: targetPage });
-    }
   }
 })

@@ -1,3 +1,9 @@
 <view class="container">
   <text>个人中心</text>
 </view>
+<!-- pages/profile/profile.wxml -->
+<view class="nav-bar">
+  <view bindtap="handleNavClick" data-url="/pages/index/index">预约课程</view>
+  <view bindtap="handleNavClick" data-url="/pages/myCourses/myCourses">我的课程</view>
+  <view bindtap="handleNavClick" data-url="/pages/profile/profile">个人中心</view>
+</view>
