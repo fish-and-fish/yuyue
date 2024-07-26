@@ -1,4 +1,6 @@
 // pages/myCourses/myCourses.js
+import request from '../../utils/request';
+
 Page({
 
   /**

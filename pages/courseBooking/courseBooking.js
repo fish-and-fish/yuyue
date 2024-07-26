@@ -1,5 +1,3 @@
-// pages/courseBooking/courseBooking.js
-import BASE_URL from '../../config.js';
 import request from '../../utils/request';
 
 Page({
@@ -25,7 +23,7 @@ Page({
       { start: '20:00', end: '21:00' }
     ],
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.setData({
       course: {
         id: options.id,
@@ -33,24 +31,26 @@ Page({
         courseImage: options.courseImage,
       }
     });
-    wx.request({
-      url: `${BASE_URL}/course/all/teacher?courseId=${this.data.course.id}`,
+
+    request({
+      path: `/course/all/teacher?courseId=${this.data.course.id}`,
       method: 'GET',
-      header: {
-        'Content-Type': 'application/json'
-      },
-      success: (res) => {
-        if (res.data.success) {
-          this.setData({
-            teachers: res.data.data
-          });
-        } else {
-          wx.showToast({
-            title: res.data.message,
-            icon: 'none'
-          });
-        }
+    }).then(res => {
+      if (res.data.success) {
+        this.setData({
+          teachers: res.data.data
+        });
+      } else {
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none'
+        });
       }
+    }).catch(() => {
+      this.setData({
+        errorMessage: '请求失败，请稍后再试。',
+        loading: false
+      });
     });
   },
   selectTeacher(e) {
@@ -80,34 +80,35 @@ Page({
     }
 
     const selectedSlot = this.data.timeSlots.find(slot => `${slot.start} - ${slot.end}` === this.data.selectedTimeSlot);
-    wx.request({
-      url: `${BASE_URL}/course/book`,
+    request({
+      path: '/course/book',
       method: 'POST',
-      header: {
-        'Content-Type': 'application/json'
-      },
       data: {
         courseId: this.data.course.id,
         teacherId: this.data.teachers.find(teacher => teacher.teacherName === this.data.selectedTeacher).id,
         startTime: `${this.data.selectedDate} ${selectedSlot.start}:00`,
         endTime: `${this.data.selectedDate} ${selectedSlot.end}:00`
       },
-      success: (res) => {
-        if (res.data.success) {
-          wx.showToast({
-            title: '预约成功',
-            icon: 'success'
-          });
-          wx.redirectTo({
-            url: '/pages/myBookings/myBookings?status=BOOKING'
-          });
-        } else {
-          wx.showToast({
-            title: res.data.message,
-            icon: 'none'
-          });
-        }
+    }).then(res => {
+      if (res.data.success) {
+        wx.showToast({
+          title: '预约成功',
+          icon: 'success'
+        });
+        wx.redirectTo({
+          url: '/pages/myBookings/myBookings?status=BOOKING'
+        });
+      } else {
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none'
+        });
       }
+    }).catch(() => {
+      wx.showToast({
+        title: '请求失败，请稍后再试。',
+        icon: 'none'
+      });
     });
   }
 });

@@ -18,3 +18,10 @@
     </view>
   </block>
 </view>
+<!-- pages/index/index.wxml -->
+<view class="nav-bar">
+  <view bindtap="handleNavClick" data-url="/pages/index/index">预约课程</view>
+  <view bindtap="handleNavClick" data-url="/pages/myBookings/myBookings?status=BOOKING">我的课程</view>
+  <view bindtap="handleNavClick" data-url="/pages/profile/profile">个人中心</view>
+</view>
+
