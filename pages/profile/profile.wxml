@@ -1,7 +1,22 @@
-<view class="container">
-  <text>个人中心</text>
-</view>
 <!-- pages/profile/profile.wxml -->
+<view class="container">
+  <view class="profile-header">
+    <image class="avatar" src="{{userInfo.avatarUrl}}" />
+    <text class="username">{{userInfo.nickName}}</text>
+    <text class="vip">{{vip ? 'VIP会员' : '普通会员'}}</text>
+    <text class="expiry">有效期至：{{expiredTime}}</text>
+  </view>
+  <view class="course-info">
+    <view class="course-item">
+      <text>预约课程</text>
+      <text>{{bookingCourseNum}}</text>
+    </view>
+    <view class="course-item">
+      <text>完成课程</text>
+      <text>{{finishCourseNum}}</text>
+    </view>
+  </view>
+</view>
 <view class="nav-bar">
   <view bindtap="handleNavClick" data-url="/pages/index/index">预约课程</view>
   <view bindtap="handleNavClick" data-url="/pages/myBookings/myBookings?status=BOOKING">我的课程</view>

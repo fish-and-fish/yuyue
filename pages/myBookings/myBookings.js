@@ -1,5 +1,4 @@
 // pages/myBookings/myBookings.js
-import BASE_URL from '../../config.js';
 import request from '../../utils/request';
 
 Page({

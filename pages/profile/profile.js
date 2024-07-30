@@ -1,73 +1,49 @@
 // pages/profile/profile.js
+const app = getApp();
+import request from '../../utils/request';
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    currentPage: '/pages/profile/profile'
+    userInfo: {},
+    finishCourseNum: 0,
+    bookingCourseNum: 0,
+    vip: false,
+    expiredTime: ''
   },
+  onLoad: function () {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo
+      });
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+      request({
+        path: `/course/book/info`,
+        method: 'POST'
+      }).then(res => {
+        if (res.data.success) {
+          this.setData({
+            finishCourseNum: res.data.data.finishCourseNum,
+            bookingCourseNum: res.data.data.bookingCourseNum,
+            vip: res.data.data.vip,
+            expiredTime: res.data.data.expiredTime
+          });
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none'
+          });
+        }
+      });
+    } else {
+      wx.redirectTo({
+        url: '/pages/login/login'
+      });
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  },
-
   handleNavClick(e) {
     const targetPage = e.currentTarget.dataset.url;
     if (targetPage !== this.data.currentPage) {
       wx.navigateTo({ url: targetPage });
     }
   }
-})
+});

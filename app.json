@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/courseBooking/courseBooking",
-    "pages/myCourses/myCourses",
     "pages/profile/profile",
     "pages/myBookings/myBookings",
     "pages/userCenter/userCenter"

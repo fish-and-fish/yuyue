@@ -1,0 +1,13 @@
+/* pages/login/login.wxss */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+button {
+  padding: 10px 20px;
+  background-color: #1AAD19;
+  color: white;
+  border-radius: 5px;
+}
