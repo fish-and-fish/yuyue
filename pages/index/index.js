@@ -8,6 +8,12 @@ Page({
     errorMessage: ''
   },
 
+  onShow: function () {
+    console.log(111);
+    wx.hideHomeButton();
+  },
+    
+
   onLoad: function () {
     this.fetchCourses();
   },

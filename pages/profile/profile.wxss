@@ -38,4 +38,6 @@
   width: 100%;
   background-color: #fff;
   border-top: 1px solid #ddd;
-}
+  height: 60px; /* 增加高度 */
+  padding: 10px 0; /* 调整内边距 */
+  }

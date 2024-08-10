@@ -4,7 +4,7 @@ const CLOUD_ENV = 'prod-5gbsbih9f5adb83c';
 const CLOUD_SERVICE = 'shop';
 
 const request = (options) => {
-  options.useCloud = true;
+  options.useCloud = false;
   const headers = {
     'Content-Type': 'application/json'
   };

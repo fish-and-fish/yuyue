@@ -6,7 +6,8 @@
     <view wx:if="{{errorMessage}}">
       <text>{{errorMessage}}</text>
     </view>
-    <view wx:else>
+    <view wx:else class='list_content'>
+      <view class='list_title'>预约课程</view>
       <view class="course" wx:for="{{courses}}" wx:key="id" bindtap="navigateToCourseBooking" data-id="{{item.id}}" data-course-name="{{item.courseName}}" data-course-image="{{item.courseImage}}">
         <image src="{{item.courseImage}}" class="course-image" />
         <text>{{item.courseName}}</text>

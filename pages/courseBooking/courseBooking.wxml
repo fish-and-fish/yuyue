@@ -1,18 +1,23 @@
 <!-- pages/courseBooking/courseBooking.wxml -->
 <view class="container">
-  <image class="course-image" src="{{course.courseImage}}"></image>
-  <text class="course-name">{{course.courseName}}</text>
+  <view class="course_info">
+    <image class="course-image" src="{{course.courseImage}}"></image>
+    <text class="course-name">{{course.courseName}}</text>
+  </view>
 
+  <view class="container_label">老师</view>
   <picker mode="selector" range="{{teachers}}" range-key="teacherName" bindchange="selectTeacher">
     <view class="picker">
       {{selectedTeacher || '请选择老师'}}
     </view>
   </picker>
+  <view class="container_label">日期</view>
   <picker mode="date" bindchange="selectDate">
     <view class="picker">
       {{selectedDate || '请选择日期'}}
     </view>
   </picker>
+  <view class="container_label">时间</view>
   <view class="time-slots">
     <block wx:for="{{timeSlots}}" wx:key="index">
       <view class="time-slot {{selectedTimeSlot === item.start + ' - ' + item.end ? 'selected' : ''}}" data-index="{{index}}" bindtap="selectTimeSlot">
@@ -20,5 +25,5 @@
       </view>
     </block>
   </view>
-  <button bindtap="confirmBooking">确定预约</button>
+  <button bindtap="confirmBooking" class="confirm_btn">确定预约</button>
 </view>
