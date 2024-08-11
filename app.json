@@ -12,11 +12,27 @@
     "navigationBarBackgroundColor": "#ffffff",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "预约课程",
+        "iconPath": "images/guitar.png",
+        "selectedIconPath": "images/guitar.png" 
+      },
+      {
+        "pagePath": "pages/myBookings/myBookings",
+        "text": "我的课程",
+        "iconPath": "images/guitar.png",
+        "selectedIconPath": "images/guitar.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "个人中心",
+        "iconPath": "images/guitar.png",
+        "selectedIconPath": "images/guitar.png"
+      }
+    ]
   }
-
-
-
-
-
-
 }

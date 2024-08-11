@@ -95,7 +95,7 @@ Page({
           title: '预约成功',
           icon: 'success'
         });
-        wx.redirectTo({
+        wx.switchTab({
           url: '/pages/myBookings/myBookings?status=BOOKING'
         });
       } else {
