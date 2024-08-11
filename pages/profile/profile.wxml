@@ -1,19 +1,24 @@
 <!-- pages/profile/profile.wxml -->
 <view class="container">
-  <view class="profile-header">
+  <view class="profile-img">
     <image class="avatar" src="{{userInfo.avatarUrl}}" />
-    <text class="username">{{userInfo.nickName}}</text>
-    <text class="vip">{{vip ? 'VIP会员' : '普通会员'}}</text>
+  </view>
+  <view class="profile-header">
+    <view class="top_header">
+      <text class="username">{{userInfo.nickName}}</text>
+      <text class="vip">{{vip ? 'VIP会员' : '普通会员'}}</text>
+    </view>
+    <!-- <text class="expiry" wx:if="{{ vip }}">有效期至：{{expiredTime}}</text> -->
     <text class="expiry">有效期至：{{expiredTime}}</text>
   </view>
   <view class="course-info">
     <view class="course-item">
+      <text class="num">{{bookingCourseNum}}</text>
       <text>预约课程</text>
-      <text>{{bookingCourseNum}}</text>
     </view>
     <view class="course-item">
+      <text class="num">{{finishCourseNum}}</text>
       <text>完成课程</text>
-      <text>{{finishCourseNum}}</text>
     </view>
   </view>
 </view>

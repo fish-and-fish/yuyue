@@ -1,4 +1,5 @@
 import request from '../../utils/request';
+const app = getApp();
 
 Page({
   data: {
@@ -12,10 +13,24 @@ Page({
     console.log(111);
     wx.hideHomeButton();
   },
-    
 
   onLoad: function () {
-    this.fetchCourses();
+    this.initPage();
+  },
+
+  initPage: function () {
+    if (app.globalData.token) {
+      this.fetchCourses();
+    } else {
+      app.loginBackend(app.globalData.userInfo).then(() => {
+        this.fetchCourses();
+      }).catch(err => {
+        this.setData({
+          errorMessage: '登录失败，请重试。',
+          loading: false
+        });
+      });
+    }
   },
 
   fetchCourses: function () {

@@ -8,13 +8,20 @@
   <block wx:for="{{bookings}}" wx:key="id">
     <view class="booking_date">{{ item.bookingDate }}</view>
     <view class="booking">
-      <text class="course-name">{{item.course.courseName}}({{ item.teacher.teacherName }})</text>
-      <text class="time">{{item.bookingStart}} - {{item.bookingEnd}}</text>
+      <view class="booking_left" wx:if="{{status !== 'CANCELLED'}}">
+        <view class="course-name">{{item.course.courseName}}({{ item.teacher.teacherName }})</view>
+        <view class="time">{{item.bookingStart}} - {{item.bookingEnd}}</view>
+      </view>
       <!-- <text class="teacher">{{item.teacher.teacherName}}</text> -->
+      <view class="booking_left" wx:if="{{status === 'CANCELLED'}}">
+        <view class="course-name">{{item.course.courseName}}({{ item.teacher.teacherName }})  {{item.bookingStart}} - {{item.bookingEnd}}</view>
+        <view class="time">取消时间: {{item.cancelTime}}</view>
+      </view>
+
       <view class="actions">
-        <button wx:if="{{status === 'BOOKING'}}" bindtap="cancelBooking" data-id="{{item.id}}">取消预约</button>
-        <text wx:if="{{status === 'COMPLETE'}}">完成时间: {{item.completeTime}}</text>
-        <text wx:if="{{status === 'CANCELLED'}}">取消时间: {{item.cancelTime}}</text>
+        <button wx:if="{{status === 'BOOKING'}}" bindtap="cancelBooking" data-id="{{item.id}}" class="booking_cancel">取消预约</button>
+        <!-- <text wx:if="{{status === 'COMPLETE'}}" class="time_info">完成时间: {{item.completeTime}}</text> -->
+        <!-- <text wx:if="{{status === 'CANCELLED'}}" class="time_info">取消时间: {{item.cancelTime}}</text> -->
       </view>
     </view>
   </block>

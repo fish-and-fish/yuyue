@@ -1,7 +1,59 @@
 /* pages/myBookings/myBookings.wxss */
 .container {
-  padding: 20px;
+  /* padding: 20px; */
+  padding: 60rpx 50rpx 30rpx 50rpx;
 }
+
+.avatar {
+  /* 用户头像 */
+  background-color: coral;
+  width: 150rpx;
+  height: 150rpx;
+  margin-bottom: 30rpx;
+}
+
+/* 用户名 类别 */
+.profile-header {
+  margin-bottom: 38rpx;
+}
+.top_header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+.username {
+  font-size: 50rpx;
+  margin-right: 18rpx;
+}
+.vip {
+  background: #000;
+  color: #fff;
+  font-size: 24rpx;
+  padding: 10rpx 28rpx;
+  border-radius: 32rpx;
+}
+.expiry {
+  font-size: 24rpx;
+}
+
+.course-info {
+  background: #000;
+  color: #fff;
+  padding: 24rpx 32rpx;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: space-evenly;
+}
+.course-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.num {
+  margin-bottom: 12rpx;
+}
+
 .tabs {
   display: flex;
   justify-content: space-around;
@@ -40,4 +92,4 @@
   border-top: 1px solid #ddd;
   height: 60px; /* 增加高度 */
   padding: 10px 0; /* 调整内边距 */
-  }
+}
