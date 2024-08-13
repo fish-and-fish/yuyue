@@ -18,20 +18,20 @@
       {
         "pagePath": "pages/index/index",
         "text": "预约课程",
-        "iconPath": "images/guitar.png",
-        "selectedIconPath": "images/guitar.png" 
+        "iconPath": "images/booking.png",
+        "selectedIconPath": "images/booking.png" 
       },
       {
         "pagePath": "pages/myBookings/myBookings",
         "text": "我的课程",
-        "iconPath": "images/guitar.png",
-        "selectedIconPath": "images/guitar.png"
+        "iconPath": "images/mycourses.png",
+        "selectedIconPath": "images/mycourses.png"
       },
       {
         "pagePath": "pages/profile/profile",
         "text": "个人中心",
-        "iconPath": "images/guitar.png",
-        "selectedIconPath": "images/guitar.png"
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user.png"
       }
     ]
   }

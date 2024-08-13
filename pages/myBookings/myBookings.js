@@ -9,7 +9,7 @@ Page({
   },
   onLoad: function(options) {
     this.setData({
-      status: options.status
+      status: options.status || 'BOOKING',
     });
     this.fetchBookings();
   },

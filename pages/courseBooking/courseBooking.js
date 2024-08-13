@@ -93,10 +93,13 @@ Page({
       if (res.data.success) {
         wx.showToast({
           title: '预约成功',
-          icon: 'success'
-        });
-        wx.switchTab({
-          url: '/pages/myBookings/myBookings?status=BOOKING'
+          icon: 'success',
+          duration: 500, 
+          complete: () => {
+            wx.switchTab({
+            url: '/pages/myBookings/myBookings?status=BOOKING'
+            });
+            }
         });
       } else {
         wx.showToast({
