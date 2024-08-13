@@ -94,7 +94,7 @@ Page({
         wx.showToast({
           title: '预约成功',
           icon: 'success',
-          duration: 500, 
+          duration: 1500, 
           complete: () => {
             wx.switchTab({
             url: '/pages/myBookings/myBookings?status=BOOKING'
